@@ -41,7 +41,9 @@ const Comment: React.FC<{ cId: number; className: string }> = ({
         <p className="text-xs text-gray-600">
           {`${comment?.by ?? ''} `}
           <Link href={`/post/${comment.id}`}>
-            <a>{dayjs.unix(comment.time ?? 0).fromNow()}</a>
+            <a>
+              {comment?.time ? dayjs.unix(comment.time ?? 0).fromNow() : ''}
+            </a>
           </Link>
         </p>
       </div>
